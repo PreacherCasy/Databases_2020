@@ -29,29 +29,39 @@ retmode = 'xml', sort='relevance')
 
     return assembly
 
-def fetch_relatives(entry:SeqRecord.SeqRecord):
+def fetch_relatives(entry:SeqRecord.SeqRecord, od:str='.'):
+
+    """Find matching genomes by BLASTing 2020 nCoV reference against the RefSeq database""""
+
     seq = entry.seq
     result_handle = NCBIWWW.qblast("blastn", "refseq_genomes", seq)
     records = list(NCBIXML.read(result_handle).alignments)
     for record in records:
-        print(record.title)
+        query = record.title.split('|')[3]
+        rel = SeqIO.read(Entrez.efetch(db='nucleotide', id=query, retmode='txt'), 'genbank')
+        SeqIO.write(rel, os.path(os.getcwd(), f'{rel.id}.gb'), 'genbank')
 
 def extract_CDS(i:str):
+
+    """extract coding sequnces and write them in FASTA format"""
+
     from converter import convert
     for file in os.listdir(i):
         converter(i, i.replace('.gb', '.fa'))
 
+@click.command()
+@click.option('-i', help='A reference file', default=None)
+@click.option('-o', help='Path to reference', default=None)
+@click.option('-od', help='A folder for downloaded sequences')
 
-def brew_db():
-    pass
 
-def blast_n_sort():
-    pass
+def prepare_refs():
+    if i is not None:
+        ref = i
+    else:
+        ref = download_ref(o)
+    fetch_relatives(od)
+    extract_CDS(od)
 
-#@click.command
-#print(return_XML())
-
-ref = download_ref('ref.fasta')
-print('Written to ref.fasta')
-fetch_relatives(ref)
-#mine_references()
+if __name__ == '__main__':
+    prepare_refs()
