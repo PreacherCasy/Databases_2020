@@ -1,0 +1,32 @@
+ID: P0A990
+Name: DPO3B_ECO57
+Description: Beta sliding clamp
+Database cross-references: BioCyc:ECOO157:CITRYLY-MONOMER, CDD:cd00140, DOI:10.1038/35054089, DOI:10.1093/dnares/8.1.11, EMBL:AE005174, EMBL:BA000007, EnsemblBacteria:AAG58898, EnsemblBacteria:BAB38059, GO:GO:0003677, GO:GO:0003887, GO:GO:0005737, GO:GO:0006260, GO:GO:0008408, GO:GO:0009360, GeneID:915391, HOGENOM:CLU_038149_4_2_6, InterPro:IPR001001, InterPro:IPR022634, InterPro:IPR022635, InterPro:IPR022637, KEGG:ece:Z5192, KEGG:ecs:ECs4636, KO:K02338, NCBI Taxonomy:83334, PANTHER:PTHR30478, PATRIC:fig|386585.9.peg.4846, PIR:D91208, PIR:F86054, PIRSF:PIRSF000804, PRIDE:P0A990, Pfam:PF00712, Pfam:PF02767, Pfam:PF02768, Proteomes:UP000000558, Proteomes:UP000002519, PubMed:11206551, PubMed:11258796, RefSeq:NP_312663.1, RefSeq:WP_000673464.1, SMART:SM00480, SMR:P0A990, STRING:155864.EDL933_5024, Swiss-Prot:DPO3B_ECO57, Swiss-Prot:P00583, Swiss-Prot:P0A990, TIGRFAMs:TIGR00663, eggNOG:COG0592, eggNOG:ENOG4105CZ8
+Number of features: 4
+/dataset=Swiss-Prot
+/created=1986-07-21
+/modified=2020-02-26
+/version=92
+/accessions=['P0A990', 'P00583']
+/recommendedName_fullName=['Beta sliding clamp']
+/recommendedName_shortName=['Beta clamp', 'Sliding clamp']
+/alternativeName_fullName=['Beta-clamp processivity factor', 'DNA polymerase III beta sliding clamp subunit', 'DNA polymerase III subunit beta']
+/gene_name_primary=dnaN
+/gene_name_ordered locus=['Z5192', 'ECs4636']
+/taxonomy=['Bacteria', 'Proteobacteria', 'Gammaproteobacteria', 'Enterobacterales', 'Enterobacteriaceae', 'Escherichia']
+/organism=Escherichia coli O157:H7
+/references=[Reference(title='Genome sequence of enterohaemorrhagic Escherichia coli O157:H7.', ...), Reference(title='Complete genome sequence of enterohemorrhagic Escherichia coli O157:H7 and genomic comparison with a laboratory strain K-12.', ...)]
+/comment_function=["Confers DNA tethering and processivity to DNA polymerases and other proteins. Acts as a clamp, forming a ring around DNA (a reaction catalyzed by the clamp-loading complex) which diffuses in an ATP-independent manner freely and bidirectionally along dsDNA. Initially characterized for its ability to contact the catalytic subunit of DNA polymerase III (Pol III), a complex, multichain enzyme responsible for most of the replicative synthesis in bacteria; Pol III exhibits 3'-5' exonuclease proofreading activity. The beta chain is required for initiation of replication as well as for processivity of DNA replication."]
+/comment_subunit=["Forms a ring-shaped head-to-tail homodimer around DNA which binds and tethers DNA polymerases and other proteins to the DNA. The DNA replisome complex has a single clamp-loading complex (3 tau and 1 each of delta, delta', psi and chi subunits) which binds 3 Pol III cores (1 core on the leading strand and 2 on the lagging strand) each with a beta sliding clamp dimer. Additional proteins in the replisome are other copies of gamma, psi and chi, Ssb, DNA helicase and RNA primase."]
+/comment_subcellularlocation_location=['Cytoplasm']
+/comment_similarity=['Belongs to the beta sliding clamp family.']
+/proteinExistence=['inferred from homology']
+/keywords=['Cytoplasm', 'DNA replication', 'DNA-binding', 'DNA-directed DNA polymerase', 'Nucleotidyltransferase', 'Reference proteome', 'Transferase']
+/key=['1', '2', '3']
+/type=['ECO:0000250', 'ECO:0000305']
+/sequence_length=366
+/sequence_mass=40587
+/sequence_checksum=7A45646F61255B5A
+/sequence_modified=1988-04-01
+/sequence_version=1
+Seq('MKFTVEREHLLKPLQQVSGPLGGRPTLPILGNLLLQVADGTLSLTGTDLEMEMV...MRL', ProteinAlphabet())

@@ -1,0 +1,5 @@
+Family id	Family Accession	Clan	Env. Start	Env. End	Ali. Start	Ali. End	Model Start	Model End	Bit Score	Ind. E-value	Cond. E-value	Description
+PCNA_C	PF02747.15	CL0060	127	254	127	254	1	128	210.92	5.2e-63	1.2e-66	Proliferating cell nuclear antigen, C-terminal domain
+PCNA_N	PF00705.18	CL0060	1	125	1	124	1	126	201.15	3.9e-60	8.6e-64	Proliferating cell nuclear antigen, N-terminal domain
+Rad1	PF02144.16	CL0060	1	235	2	230	2	264	31.41	9.6e-08	2.1e-11	Repair protein Rad1/Rec1/Rad17
+Rad9	PF04139.13	CL0060	12	247	13	237	2	222	32.63	5.3e-08	1.2e-11	Rad9

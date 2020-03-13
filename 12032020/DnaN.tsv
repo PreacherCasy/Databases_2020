@@ -1,0 +1,4 @@
+Family id	Family Accession	Clan	Env. Start	Env. End	Ali. Start	Ali. End	Model Start	Model End	Bit Score	Ind. E-value	Cond. E-value	Description
+DNA_pol3_beta_2	PF02767.16	CL0060	129	243	129	243	1	116	139.01	7.4e-41	1.2e-44	DNA polymerase III beta subunit, central domain
+DNA_pol3_beta	PF00712.19	CL0060	1	120	1	120	1	121	138.84	8.7e-41	1.5e-44	DNA polymerase III beta subunit, N-terminal domain
+DNA_pol3_beta_3	PF02768.15	CL0060	245	365	245	365	1	121	154.02	1.4e-45	2.4e-49	DNA polymerase III beta subunit, C-terminal domain

@@ -1,0 +1,3 @@
+Forms a ring-shaped head-to-tail homodimer around DNA which binds and tethers DNA polymerases and other proteins to the DNA
+The DNA replisome complex has a single clamp-loading complex (3 tau and 1 each of delta, delta', psi and chi subunits) which binds 3 Pol III cores (1 core on the leading strand and 2 on the lagging strand) each with a beta sliding clamp dimer
+Additional proteins in the replisome are other copies of gamma, psi and chi, Ssb, DNA helicase and RNA primase.
