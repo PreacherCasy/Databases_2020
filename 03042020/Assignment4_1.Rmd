@@ -1,0 +1,118 @@
+---
+title: "Assignment 4, part 1"
+author: "Yury V. Malovichko"
+date: "4/2/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(magrittr)
+```
+
+## Description
+The assignment is provided with the following preliminary wording:
+
+'You are provided with: 
+
+* a metabolic pathway - arabinose utilization. 
+* a reference genome - Bacillus subtilis subsp. subtilis 168. 
+* an organism for studying - Clostridium acetobutylicum ATCC 824.'
+
+Both these bacteria belong to Firmicutes phylum; however, while *B. subtilis* has been long utilized as a model Gram-negative bacterium, *C. acetobutylicum* is studied less thorooughly yet poses certain ineteresr because of its relationships to human pathogens of *Clostridium* genus. In the present assignmnent one is expected to assess differences between these two species regarding arabinose catabolism at genomimc level.
+
+
+## Task 1a
+'Go to: http://www.genome.jp/kegg/pathway.html 
+
+* Navigate to “Pentose and glucuronate interconversions” pathway (arabinose is pentose).
+This brings you to the reference pathway, a compilation of all the reactions known.
+* Compare the Reference pathway, Reference Pathway (KO), Reference Pathway (EC). Look in the help for clarifications (upper right corner).
+* Then go to the pathway representation in your reference genome. To find it open the list and start to type its name.
+* The color scheme has changed, what do the colors now mean?'
+
+Having followed the link to KEGG Pathway API, I went to the 'Pentose and glucuronate interconversions' page. The original 'Reference pathway' section stored a non-colored depiction of the respective KEGG pathway and were hyperlinked to 'KO, ENZYME, and REACTION entries in metabolic pathways' according to the **Help** section. Two other patway representation had its enzyme entries named with respective EC numbers hyperlinked either to KO or to EC ('Reference pathway (KO)' and 'Reference pathway (EC)', respectively). In cases of the latter to databases purple entries (claimed to be 'blue' in the **Help** section) denoted actually hyperlinked entries.
+
+## Task 1b
+'(If you will be asked for log in then use: user name: vcrecy64+BioinfoX2017@gmail.com password: BioinfoX2017).
+
+* Go to http://metacyc.org/
+* In the upper right corner click on the “change organism database.”
+* Type the name of your reference organism and click OK.
+* Then enter “L-arabinose” in the upper right box and click “quick search”.
+* Click on the found pathway (L-arabinose degradation I) and then click on more details twice.'
+
+
+Using the proposed credentials, I entered the MetaCyc database and then clicked on 'Change organism database' button to switch search DB to that related to *Bacillus subtilis subtilis* 168, which redirected me to the BsubCyc utility. After that, I entered 'L-arabinose' query and launched quick search. The search results were presented as following:
+
+
+```{r task1b, echo=FALSE}
+df.1b <- data.frame('Entry' = c('Pathways', 'Proteins', 'Compounds', 'GO Terms', 'EC Numbers'), 'No. of items' = c(2, 1, 4, 4, 1))
+df.1b %<>% `colnames<-`(c('Entry', 'No. of items'))
+df.1b
+```
+
+Going to the 'arabinose degradation I' pathway page revealed primary information on the pathway structure, compounds involved and location of genes encoding respective enzymes. Double-clicking on the 'More Detail' button replaced compound trivial names witch structural formulas. The results are available at https://biocyc.org/BSUB/NEW-IMAGE?type=PATHWAY&object=ARABCAT-PWY&detail-level=3
+
+## Task 2
+'Go to the pathway page in Metacyc from Task #1b.
+On the right in the operations tab:
+
+* Go to Comparison operations > Species comparison
+* Select Clostridium acetobutylicum ATCC 824
+* Click OK
+
+DO NOT close this tab.'
+
+Following the instructions, *Clostridium acetobutylicum* ATCC 824 database was chosen for pathway comparison. Judging by the obtained results *C. acetobutylicum* lost one of the involved genes ecnoding L-ribulokinase (EC 2.7.1.16) presented in *B. subtilis* subsp *subtilis* by an *araA* gene. Also, biosynthetic operones in the surveyed species do not show any visible synteny.
+
+## Task 3
+'Go to MicrobesOnline http://www.microbesonline.org/ 
+
+- Type the name of the reference genome in the “Add genomes” field, select it and click “Add ->” button.
+- Find “araA” with “Search genes in selected genomes:” field and click on “G”. You will go to the Gene Info page.
+- In the COG section click on “phylogenetic profile”.
+- Once it is loaded add all EC numbers from the pathway in “EC1.1.1.1” format. Initial COG could be deleted by changing URL and removing “group=COG2160” parameter. 
+- Choose Show genomes “by tree”.
+- Find your genome.'
+
+By following the instruction and further removing the redundant COG entry from the query, the following results were obtained: http://www.microbesonline.org/cgi-bin/phyloprofile.cgi?&group=EC5.3.1.4&group=EC2.7.1.16&download=0&show=bytree&group=EC5.1.3.4 . Judging by thes data, *B. subtilis* has unigenes for all the enzymes envolved, while *C. acetobutylicum* underwent duplication of *araA* homolog and loss of *araB* gene.
+
+
+## Task 4
+
+'From the phylogenetic profile view of MicrobesOnline.
+
+- Open all genes that are present in the phylogenetic profile view in new tabs.
+- For each gene open tree browser. If you have several genes for one reaction click on the “T” letter in the gene description in the list of genes. Else go to the “Browse Genomes by trees”.
+- Check trees if you see one or different loci on different trees. You can use the Zoom Out tool. Close tabs with the same loci.
+- You can look at the gene annotations by mouse over. Observe if there is any gene in proximity to your locus that has general function similar to the missing gene.
+- Click on this gene and then click “Recenter”.
+- Look at other genomes on the tree.'
+
+In *B. subtilis* all three *araA*, *araB* and *araD* are located in close proximity to each other and are neighbored by genes related to carbohydrate metabolism. At the same time, of three orthologs present in *C. acetobutylicum*, one copy of *araA* and *araD* preserve proximal location while the other *araA* paralog shows spatial remoteness and is not functionally related to juxtaposing genes.
+
+## Task 5
+
+'Go to the String database http://string-db.org/ 
+
+- Click on search and enter locus tag of the found gene via a protein name (Note: In different versions of the genome locus tags could have variations. E.g. in MicrobesOnline locus tag for C. acetobutylicum is CAC1342, while in STRING it will be CA_C1342). Leave the organisms “auto-detect”.
+- Click SEARCH.
+- The default page (Legend) will show you a network, the different line colors represent types of association (clustering on chromosome, co-occurrence, co-expression, protein-protein interactions, etc).
+- Click on the “Data Settings”  tab and turn off text mining and databases and UPDATE SETTINGS.  Go back to the “Legend” tab.
+- Look if there are familiar genes in the network. 
+- If you choose the 'Confidence View’ in the “VIEW SETTINGS” tab, stronger associations are represented by a thicker line.
+- In the ‘Evidence View’ screen, click on the neighborhood figure to see all the physical clustering of the network. 
+- Look at other genes in the network.'
+
+For network reconstruction I chose the proposed CA_C1342 locus of *C. aecotbutilycum*. The resulting network comprised 10 primary shell proteins and the qury protein itself. Turning off the 'Text mining' and 'Databases' interaction sources reduced the primary interaction shell down to four proteins, namely araD, araR, CA_C1343 and CA_C1344. While the araD had been detected in the previous assays, three other candidates seemed to be completely new and required further elucidation. Further reduction of evidence to 'Neighborhood' solely resulted in only araR and araD left. Having not been encountere prior, the *araR* gene encodes an arabinose metabolism transcriptional repressor according the annotation found at UniProt (acc. number P96711). Two other proteins associated by features other than gene neighborhood are annotated as putative phosphoketolase (CA_C1343; UniProt acc. no. Q97JE3) and putative xylulose kinase (CA_C1344; UniProt acc. no. ), respectively.
+
+
+## Discussion
+
+While the full potential of the proposed databases for comparative genomics is revealed in the second part of the assignment, the utilized functionality already shows how one can easily track down metabolic changes between species at genomic level using fast performance server utilities. In the proposed case differences regarding arabinose cataboism ae reflect by both gene content ad gene location in the genome. While *B. subtilis* possesses genes for all three enzymes of the selected pathway, in *C. acetobutylicum* two large-scale indel events, namely duplication of *araA* and *araB*. It would be worthy experimentally assessing whether these genomic differences are anyhow reflected at the phenotypic level of these bacteria.
+
+``` {r sessioinfo}
+sessionInfo()
+```
+
